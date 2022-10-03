@@ -1,0 +1,75 @@
+//TIPOS DE DATOS
+
+-- STRING --
+
+let A "CADENA"
+
+let a = "c" --> Cadena de un solo caracter, no exite tipo Char
+
+let c = 'Con comillas simples'
+
+let d = "caracteres especiales \n" 
+
+let e = `Con comillas simples, se puede acceder a variables con ${variable/funcion}´
+
+
+
+-- NUMBER -- 
+
+let n = 12 --> Enteros
+let n2 = 21.8989 --> Coma flotante
+let n3 = 21e+2 --> Notacion cientifica
+let n4 = 12/0 --> Infinity 
+let n5 = -12/0 --> - Infinity
+
+n = NaN, no se puede comparar con el ==
+
+exite una funcion que es "isNaN", la cual devuelve true o false si es Nan o no 
+
+parseInt --> Igual que en java
+
+
+
+
+-- BOOLEAN --
+
+let v1 = true 
+let v2 = false  
+
+
+-- Convertir tipos a Number --
+boolean a Number -> 1 true; 0 false
+
+Null a number -> 0
+
+Undefined a number --> NaN
+
+String a Number --> si la cadena es un numero pero entre comillas, convierte el numero 
+si son letras lo convierte a NaN 
+
+si esta vacia, es un 0
+
+
+
+-- CONVERTIR DATOS A BOOLEAN --
+Null --> false
+
+Undefined -> false
+
+number 
+    - 0 -> false 
+    - El resto de numeros --> true
+    - Float --> 0.0 -> false el resto True 
+
+String 
+    "" --> False 
+    "4545" --> true 
+    "asdf" --> true
+
+
+
+-- OTROS TIPOS --
+
+Undefined --> Solo tiene ese valor, lo que en otros lenguajes es un "void"
+
+Object --> Es un error de comportamiento del "typeOf" 
