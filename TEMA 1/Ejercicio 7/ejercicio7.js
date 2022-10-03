@@ -17,4 +17,6 @@ const tableroAjerdrez = (fila) => {
     document.body.innerHTML += tableroDibujo;
 }
 
+
+
 tableroAjerdrez(prompt("Introduce un nuero de filas"))
