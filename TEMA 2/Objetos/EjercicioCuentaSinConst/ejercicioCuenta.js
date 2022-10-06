@@ -14,5 +14,6 @@ let cuenta = {
     informar(){
         console.log(this.nombre);
         console.log(this.saldo);
+         
     }
 }
