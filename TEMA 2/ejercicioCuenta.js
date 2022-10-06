@@ -12,7 +12,7 @@ let cuenta = {
     },
 
     informar(){
-        console.log(cuenta.nombre);
-        console.log(cuenta.saldo);
+        console.log(this.nombre);
+        console.log(this.saldo);
     }
 }
