@@ -12,7 +12,7 @@ function Coche (marticula, precio, vel_max){
     }
 
     this.distanciaMax = (tiempo) => {
-        console.log("El coche ha recorrido ", this.vel_max*tiempo)
+        console.log("El coche ha recorrido: ", this.vel_max*tiempo)
     }
 
     this.toString = () =>{
@@ -24,7 +24,7 @@ function Coche (marticula, precio, vel_max){
     }
 }
 
-let miCoche = new Coche("09006BZN", 135000, 250)
+let miCoche = new Coche("5869 CBD", 135000, 250)
 
 miCoche.comenzar()
 miCoche.parar()
