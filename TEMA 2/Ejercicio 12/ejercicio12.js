@@ -12,7 +12,6 @@ const almacenarEntrada = () =>{
         }
     }
 }
-let salida = []
-salida = almacenarEntrada()
 
-salida.forEach(console.log)
+
+console.log(almacenarEntrada())
