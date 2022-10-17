@@ -7,7 +7,8 @@ let usuarios = [ john, pete, mary ];
 
 const ordenar = (usuarios) => {
     let usuariosMapeados = []
-    usuarios.map((usuario) => alert(usuario.nombre +" "+  usuario.apellido),usuariosMapeados.push() )
+    usuarios.map((usuario) => usuariosMapeados.push({nombreCompleto: usuario.nombre +" "+  usuario.apellido,id: usuario.id}) )
+    return usuariosMapeados
 }
 
-ordenar(usuarios)
+console.log(ordenar(usuarios))
