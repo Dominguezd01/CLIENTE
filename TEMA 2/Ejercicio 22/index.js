@@ -7,16 +7,9 @@ const limpiarArray = (array) => {
     let introducir = element.toLowerCase().split("").sort().join("")
 
     map.set(introducir, element)
-    
-    
   });
-  console.log(map)
-  let arrayLimpio = Array.from(map.values())
-
-  return arrayLimpio
+  return Array.from(map.values())
 }
-
-
 
 let arrayLimpio = limpiarArray(arr)
 

@@ -2,7 +2,7 @@ let values = ["Hare", "Krishna", "Hare", "Krishna",
   "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
 
-function unicos(values){
+const unicoValores = (values) =>{
   unicos = new Set(values)
 
   console.log(unicos)
@@ -10,7 +10,11 @@ function unicos(values){
   unicos.forEach(element => {
     alert(element)
   });
+
+  return Array.from(unicos)
 }
 
-unicos(values)
+let valuesUnicos = unicos(values)
+
+console.log(valuesUnicos)
 //alert( unicos(values) ); // Hare, Krishna, :-O

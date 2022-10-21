@@ -2,7 +2,11 @@ let map = new Map();
 
 map.set("name", "John");
 
-let keys = map.keys();
+// No funcionaba porque no era un array.
+let keys = Array.from(map.keys())
 
-// Error: keys.push no es una función
+console.log(keys)
+
+
+
 keys.push("more");
