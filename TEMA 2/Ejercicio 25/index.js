@@ -5,13 +5,11 @@ let salarios = {
   };
   
   const sumSalarios = (salarios) =>{
-
+    let suma = 0
     for (element of Object.values(salarios)){
-        element += Object.values(salarios)
-        console.log(element)
+       suma += element
+        console.log(suma)
     }
-
-
   }
 
   sumSalarios(salarios)
