@@ -1,28 +1,15 @@
-function Usuarios (nombre, edad){
-    this.nombre = nombre,
-    this.edad = edad
-}
+let student = {
+    name: 'John',
+    age: 30,
+    isAdmin: false,
+    courses: ['html', 'css', 'js'],
+    spouse: null
+  };
 
+  let c =  JSON.stringify(student)
 
-let newUser = new Usuarios("John", 456)
+  console.log(c)
 
-let users = []
+  let b = JSON.parse(c)
 
-users.push(newUser)
-let arraysNewUsers = []
-users.map(usuarios => 
-            alert(usuarios.nombre + usuarios.edad), 
-            arraysNewUsers.push(usuarios)
-            )
-
-
-arrayNewUsers = users.map(usuarios => {
-    alert(usuarios.nombre + usuarios.edad);
-    return usuarios;
-
-})
-                
-    
-
-console.log(arraysNewUsers)
-arraysNewUsers.map(uusuarios => console.log(uusuarios))
+  console.log(b)
