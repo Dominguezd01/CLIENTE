@@ -22,6 +22,6 @@ function printarVentana({titulo,ancho,alto,color="rojo"}){
     console.log(titulo,ancho,alto,color)
 }
 
-printarVentana(ventana.titulo, ventana.ancho, ventana.alto)
+
 
 printarVentana(ventana2)
