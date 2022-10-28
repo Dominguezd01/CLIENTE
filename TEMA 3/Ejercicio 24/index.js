@@ -24,11 +24,11 @@ const lanzarDados = (numVeces) => {
     }
 
     mapNums.forEach((value, key, map) => {
-        console.log(`El número ${key} sale ${value} veces`)
+       document.body.innerHTML += `El número ${key} sale ${value} veces <br>`
     });
 
   
-    let guardarDatos = JSON.stringify(Array.from(mapNums));
+    let guardarDatos = JSON.stringify(Array.from(mapNums.entries()));
 
     localStorage.setItem("resultado", guardarDatos);
 
