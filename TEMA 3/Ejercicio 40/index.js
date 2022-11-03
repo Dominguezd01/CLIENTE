@@ -1,13 +1,12 @@
 let suma = 0;
-const sumTo = (sumaRes,num) =>{
-    
+const sumTo = ( num) => {
     if(num == 0){
         return 0
     }else{
-        sumaRes += sumTo(sumaRes,num -1)
-        return sumaRes
+        
+        return num + sumTo(num - 1)
     }
- 
 }
 
-sumTo(suma,5)
+console.log(sumTo(5))
+
