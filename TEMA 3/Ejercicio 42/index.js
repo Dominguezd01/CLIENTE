@@ -1,7 +1,6 @@
 /*
     Fibonacci
 */
-
 const fibo = (n) =>{
     if(n == 0 || n == 1){
         return 1
@@ -12,5 +11,8 @@ const fibo = (n) =>{
 }
 
 
-console.log(fibo(10))
+
+console.log(fibo(50))
+console.log(fibo(6))
+
 
