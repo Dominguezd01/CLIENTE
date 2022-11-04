@@ -12,8 +12,17 @@ let list = {
     }
 };
 
-const recorrer = (list) =>{
-    console.log(list)
-}
 
-recorrer(list)
+const recorrerObjeto = (list) => {
+    if(!list){
+        console.log("Nope")
+    }
+    console.log(list.value); // genera el elemento actual
+  
+    if (list.next) {
+      recorrerObjeto(list.next); // hace lo mismo para el resto de la lista
+    }
+  
+}
+  
+  recorrerObjeto(list)
