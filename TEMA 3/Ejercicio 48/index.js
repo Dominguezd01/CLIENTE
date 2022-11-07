@@ -33,15 +33,16 @@ class Vector{
         return new Vector(this.x - v2.x, this.y - v2.y)
         
     }
-    longitud(){
-        return Math.sqrt(this.x**2 + this.y**2)
+
+    get longitud(){
+        return Math.sqrt((this.x**2) + (this.y**2))
     }
 }
 
 
 let v1 = new Vector(4,2)
 let v2 = new Vector(4,2)
-console.log(v1.longitud())
+console.log(v1.longitud)
 console.log(v1.sumar(v2))
 console.log(v1.restar(v2))
 
