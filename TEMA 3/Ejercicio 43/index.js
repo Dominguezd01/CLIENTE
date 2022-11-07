@@ -17,10 +17,10 @@ const recorrerObjeto = (list) => {
     if(!list){
         console.log("Nope")
     }
-    console.log(list.value); // genera el elemento actual
+    console.log(list.value); 
   
     if (list.next) {
-      recorrerObjeto(list.next); // hace lo mismo para el resto de la lista
+      recorrerObjeto(list.next); 
     }
   
 }
