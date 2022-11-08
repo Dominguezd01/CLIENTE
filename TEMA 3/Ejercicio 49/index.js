@@ -30,8 +30,3 @@ class Vehiculo {
 }
 
 
-let coche1 = new Vehiculo("rojo", "AUDI", "Si", "250")
-
-coche1.comenzar()
-coche1.parar()
-console.log(coche1.distanciaMax(123))
