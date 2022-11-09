@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../JS/index.js" defer></script>
+    <script src="../JS/Inventario.js" defer></script>
+    <link rel="stylesheet" href="../CSS/style.css">
+ 
+</head>
+<body>
+    <!--Formulario que sirve para escoger la opción del menú-->
+    <form id="formulario1" style="display: none;">
+        <input type="radio" name="opcion" value="1">Dar Alta</input><br>
+        <input type="radio" name="opcion" value="2">Dar baja</input><br>
+        <input type="radio" name="opcion" value="3">Consultar Inventario</input><br><br>
+        <input type="submit">   
+    </form>
+
+
+    <form id="formularioAltas" style="display: none;">
+        <input id="codigo" placeholder="Codigo del Elemento" type="number" name="cod">
+        <input id="descripcion" placeholder="Descripcion Producto" type="text" name="desc"><br><br>
+        <label for="fechaAlt">Fecha de alta</label>
+        &nbsp; &nbsp; &nbsp; &nbsp; <label>Fecha de baja</label><br>
+        <input id="fechaAlt" placeholder="Fecha de Alta" type="date" name="fechaAlt">
+        <input id="fechaBaja"placeholder="Fecha de baja" type="date" name="fechaBaja"><br><br>
+        <input type="submit">   
+    </form>
+</body>
+</html>
