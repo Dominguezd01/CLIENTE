@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,15 +9,16 @@
     <script src="../JS/index.js" defer></script>
     <script src="../JS/Inventario.js" defer></script>
     <link rel="stylesheet" href="../CSS/style.css">
- 
+
 </head>
+
 <body>
     <!--Formulario que sirve para escoger la opción del menú-->
     <form id="formulario1" style="display: none;">
         <input type="radio" name="opcion" value="1">Dar Alta</input><br>
         <input type="radio" name="opcion" value="2">Dar baja</input><br>
         <input type="radio" name="opcion" value="3">Consultar Inventario</input><br><br>
-        <input type="submit">   
+        <input type="submit">
     </form>
 
 
@@ -24,10 +26,26 @@
         <input id="codigo" placeholder="Codigo del Elemento" type="number" name="cod">
         <input id="descripcion" placeholder="Descripcion Producto" type="text" name="desc"><br><br>
         <label for="fechaAlt">Fecha de alta</label>
-        &nbsp; &nbsp; &nbsp; &nbsp; <label>Fecha de baja</label><br>
         <input id="fechaAlt" placeholder="Fecha de Alta" type="date" name="fechaAlt">
-        <input id="fechaBaja"placeholder="Fecha de baja" type="date" name="fechaBaja"><br><br>
-        <input type="submit">   
-    </form>
+        <input type="submit">
+        <label id="errorAltas" style="display:none"></label>
+    </form><br>
+    <button id="volver">Volver al Menu principal</button>
+
+    <form id="formularioBajas" style="display: none;">
+        <input id="codigoBaja" placeholder="Codigo del Elemento" type="number" name="cod">
+        <input type="submit">
+    </form><br>
+    <button style = "display: none;"id="volverBajas">Volver al Menu principal</button>
+
+    
+        <h1 id="h1Inventario" style="text-align: center;display: none;">INVENTARIO</h1>
+        <table  id="tablaInventario" style="display: none;">
+        </table><br>
+        <button id="botonVolverInventario" style="display: none">Volver al menu</button>
+
+
+    </div>
 </body>
+
 </html>

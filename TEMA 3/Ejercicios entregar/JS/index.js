@@ -1,80 +1,129 @@
 onload = () => {
     document.getElementById("formulario1").style = "display: block"
-   
-}
+    document.getElementById("volver").style = "display: none"
 
-document.getElementById("formulario1").addEventListener("submit", e =>{
+}
+var arrayInventario = []
+document.getElementById("formulario1").addEventListener("submit", e => {
     e.preventDefault()
     const data = Object.fromEntries(new FormData(e.target))
     menus(data)
 })
 
-const menus = (data) =>{
-  // console.log(data.opcion)
-    let inventario = []
-   switch(data.opcion){
-        case "1":
-            menuAltas(inventario)
-            break
-        case 2:
+const menus = (data) => {
+    document.getElementById("formulario1").style.display = "block"
 
-   }
+    console.log(data.opcion)
+    switch (data.opcion) {
+        case "1":
+            menuAltas()
+            break
+        case "2":
+            menuBajas()
+            break
+        case "3":
+            mostrarInventario()
+            break
+
+    }
 }
 
-const menuAltas = (inventario) =>{
+const menuAltas = () => {
+
+    let formAltas = document.getElementById("formularioAltas")
+    formAltas.style.display = "block"
     document.getElementById("formulario1").style = "display: none"
-    document.getElementById("formularioAltas").style = "display: block"
-    document.getElementById("formularioAltas").addEventListener("submit", e =>{
+    document.getElementById("formularioAltas").addEventListener("submit", e => {
         e.preventDefault()
+        let labelAltas = document.getElementById("errorAltas")
+        labelAltas.innerHTML = "Codigo ya existente"
+        labelAltas.style = "display: none; color: red"
         const data = Object.fromEntries(new FormData(e.target))
         console.log(data)
-        let elemCode, desc, fechaAlt, fechaBaja; 
+        let elemCode, desc, fechaAlt;
 
-        if(data.cod ==""){
+        if (data.cod == "") {
             changeColor("codigo")
-        }else{
-            elemCode = data.cod
-            changeColortoGreen("descripcion") 
+        } else {
+
+            changeColortoGreen("descripcion")
         }
-        if(data.desc == ""){
+        if (data.desc == "") {
             changeColor("descripcion")
-        }else{
+        } else {
             desc = data.desc
-            changeColortoGreen("descripcion")   
+            changeColortoGreen("descripcion")
         }
-        if(data.fechaAlt == "" ||  new Date (data.fechaAlt) > new Date()){
+        if (data.fechaAlt == "" || new Date(data.fechaAlt) > new Date()) {
             changeColor("fechaAlt")
-        }else{
+        } else {
             fechaAlt = data.fechaAlt
             changeColortoGreen("fechaAlt")
         }
-        if(data.fechaBaja == "" ||  new Date (data.fechaBaja) < new Date()){
-            changeColor("fechaBaja")
-        }else{
-            fechaBaja = data.fechaBaja
-            changeColortoGreen("fechaBaja")
+
+        if (data.cod != "" && data.desc != "" && data.fechaAlt != "" && new Date(data.fechaAlt) < new Date()) {
+            arrayInventario = Articulo.añadir(arrayInventario, data)
+            console.log(arrayInventario)
+            let formAltas = document.getElementById("formularioAltas")
+            formAltas.cod.value= ""
+            formAltas.desc.value= ""
+            formAltas.fechaAlt.value= ""
         }
 
-        if(elemCode != "" && desc != "" || fechaAlt!="" && fechaBaja !=""){
-            gestionInventario(inventario, new Articulo(elemCode, desc, fechaAlt, fechaBaja))
-        }
 
 
     })
+    document.getElementById("volver").style.display = "block"
+    document.getElementById("volver").onclick = () => {
+        formAltas.style.display = "none"
+        document.getElementById("formulario1").style.display = "block"
+        document.getElementById("volver").style.display = "none"
+        formAltas.cod.value= ""
+        formAltas.desc.value= ""
+        formAltas.fechaAlt.value= ""
+    }
 
 }
-const changeColor =(idElement) =>{
+
+const changeColor = (idElement) => {
     let elemento = document.getElementById(idElement)
-    elemento.style= "border: solid 1px red;"
+    elemento.style = "border: solid 1px red;"
 }
 
-const changeColortoGreen =(idElement) =>{
+const changeColortoGreen = (idElement) => {
     let elemento = document.getElementById(idElement)
-    elemento.style= "border: solid 1px limegreen;"
+    elemento.style = "border: solid 1px limegreen;"
 }
 
-const gestionInventario = (inventario, item) =>{
-    inventario.push(item)
-    console.log(inventario)
+
+const menuBajas = () => {
+    let formBajas = document.getElementById("formularioBajas")
+    formBajas.style = "display: block"
+    document.getElementById("formulario1").style.display = "none"
+    document.getElementById("volver").style.display = "none"
+    let volverBajas = document.getElementById("volverBajas")
+    volverBajas.style.display = "block"
+    volverBajas.onclick = () => {
+        volverBajas.style.display = "none"
+        formBajas.style.display = "none"
+        document.getElementById("formulario1").style.display = "block"
+    }
+    formBajas.addEventListener("submit", e => {
+        e.preventDefault()
+        const data = Object.fromEntries(new FormData(e.target))
+        console.log(data)
+        Articulo.darBaja(arrayInventario, data.cod)
+    })
 } 
 
+const mostrarInventario = () =>{
+    let h1Inventario = document.getElementById("h1Inventario")
+    let table = document.getElementById("tablaInventario")
+    let botonVolverInventario = document.getElementById("botonVolverInventario")
+    h1Inventario.style.display = "block"
+    table.style.display = "block"
+    botonVolverInventario.style.display = "block"
+    
+    document.getElementById("formulario1").style.display = "none"
+    Articulo.consultarInventario(arrayInventario)
+}
