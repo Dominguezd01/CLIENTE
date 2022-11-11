@@ -17,7 +17,8 @@
     <form id="formulario1" style="display: none;">
         <input type="radio" name="opcion" value="1">Dar Alta</input><br>
         <input type="radio" name="opcion" value="2">Dar baja</input><br>
-        <input type="radio" name="opcion" value="3">Consultar Inventario</input><br><br>
+        <input type="radio" name="opcion" value="3">Consultar Inventario</input><br>
+        <input type="radio" name="opcion" value="4">Buscar Elemento</input><br><br>
         <input type="submit">
     </form>
 
@@ -25,27 +26,31 @@
     <form id="formularioAltas" style="display: none;">
         <input id="codigo" placeholder="Codigo del Elemento" type="number" name="cod">
         <input id="descripcion" placeholder="Descripcion Producto" type="text" name="desc"><br><br>
-        <label for="fechaAlt">Fecha de alta</label>
-        <input id="fechaAlt" placeholder="Fecha de Alta" type="date" name="fechaAlt">
         <input type="submit">
         <label id="errorAltas" style="display:none"></label>
     </form><br>
     <button id="volver">Volver al Menu principal</button>
+
+
+
 
     <form id="formularioBajas" style="display: none;">
         <input id="codigoBaja" placeholder="Codigo del Elemento" type="number" name="cod">
         <input type="submit">
     </form><br>
     <button style = "display: none;"id="volverBajas">Volver al Menu principal</button>
+    <h1 id="h1Inventario" style="text-align: center;display: none;">INVENTARIO</h1>
+    <table  id="tablaInventario" style="display: none;">
+    </table><br>
+    <button id="botonVolverInventario" style="display: none">Volver al menu</button>
 
-    
-        <h1 id="h1Inventario" style="text-align: center;display: none;">INVENTARIO</h1>
-        <table  id="tablaInventario" style="display: none;">
-        </table><br>
-        <button id="botonVolverInventario" style="display: none">Volver al menu</button>
-
-
-    </div>
+    <form id="formularioEncontrar" style="display: none;">
+        <input id="codigoEncontrar" placeholder="Codigo del Elemento" type="number" name="cod">
+        <input type="submit">
+    </form><br><br>
+    <table  id="tablaEncontrar" style="display: none;">
+    </table><br>
+    <button id="botonVolverEncontrar" style="display: none">Volver al menu</button>
 </body>
 
 </html>

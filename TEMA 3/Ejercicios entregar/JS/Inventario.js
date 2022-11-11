@@ -8,20 +8,19 @@ class Articulo{
 
     static añadir(inventario, data){
         if(inventario.length == 0 || inventario == "undefined"){
-            inventario.push(new Articulo(data.cod, data.desc, data.fechaAlt)) 
+            inventario.push(new Articulo(data.cod, data.desc, new Date().toLocaleDateString())) 
             return inventario
         }else{
             for(let i = 0; i<inventario.length;i++){
     
                 if(inventario[i].elemCode != data.cod){
                     console.log(inventario)
-                    inventario.push(new Articulo(data.cod, data.desc, data.fechaAlt)) 
+                    inventario.push(new Articulo(data.cod, data.desc, new Date().toLocaleDateString())) 
                     return inventario
                 }else{
                     let labelAltas = document.getElementById("errorAltas")
                     labelAltas.innerHTML = "Codigo ya existente"
                     labelAltas.style = "display: block; color: red"
-                    return inventario
                 }
             }
         }     
@@ -55,6 +54,10 @@ class Articulo{
             document.getElementById("formulario1").style.display = "block"
             document.getElementById("botonVolverInventario").style.display ="none"
         }
+    }
+
+    static consultarElemento(inventario, code){
+        return inventario.find(element => element.codeElem == code)
     }
 }
 

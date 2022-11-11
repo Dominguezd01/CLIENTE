@@ -24,12 +24,14 @@ const menus = (data) => {
         case "3":
             mostrarInventario()
             break
+        case "4":
+            mostrarBuscarElemento()
+            break
 
     }
 }
 
 const menuAltas = () => {
-
     let formAltas = document.getElementById("formularioAltas")
     formAltas.style.display = "block"
     document.getElementById("formulario1").style = "display: none"
@@ -54,14 +56,7 @@ const menuAltas = () => {
             desc = data.desc
             changeColortoGreen("descripcion")
         }
-        if (data.fechaAlt == "" || new Date(data.fechaAlt) > new Date()) {
-            changeColor("fechaAlt")
-        } else {
-            fechaAlt = data.fechaAlt
-            changeColortoGreen("fechaAlt")
-        }
-
-        if (data.cod != "" && data.desc != "" && data.fechaAlt != "" && new Date(data.fechaAlt) < new Date()) {
+        if (data.cod != "" && data.desc != "") {
             arrayInventario = Articulo.añadir(arrayInventario, data)
             console.log(arrayInventario)
             let formAltas = document.getElementById("formularioAltas")
@@ -69,11 +64,9 @@ const menuAltas = () => {
             formAltas.desc.value= ""
             formAltas.fechaAlt.value= ""
         }
-
-
-
     })
     document.getElementById("volver").style.display = "block"
+
     document.getElementById("volver").onclick = () => {
         formAltas.style.display = "none"
         document.getElementById("formulario1").style.display = "block"
@@ -127,3 +120,19 @@ const mostrarInventario = () =>{
     document.getElementById("formulario1").style.display = "none"
     Articulo.consultarInventario(arrayInventario)
 }
+
+const mostrarBuscarElemento = () =>{
+    let formulario = document.getElementById("formularioEncontrar")
+    formulario.style.display = "block"
+    document.getElementById("formulario1").style.display = "none"
+    formulario.addEventListener("submit", e =>{
+        e.preventDefault()
+        const data = Object.fromEntries(new FormData(e.target))
+        console.log(data)
+        const devuelto =  Articulo.consultarElemento(data)
+
+        let tablaEncontrar = document.getElementById("tablaEncontrar")
+        tablaEncontrar.innerHTML += `<td>${devuelto.elemCode}`
+    })
+}
+
