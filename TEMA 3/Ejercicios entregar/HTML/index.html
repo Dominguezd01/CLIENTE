@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,25 +7,45 @@
     <title>Document</title>
     <script src="../JS/index.js" defer></script>
     <script src="../JS/Inventario.js" defer></script>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <style>
+        td {
+            margin-left: 0.2em;
+        }
 
+        body {
+            display: grid;
+            justify-content: center;
+            align-content: center;
+        }
+
+        table,
+        td {
+            border: solid 2px black;
+        }
+
+        #enviarAlta {
+            width: 50%;
+        }
+    </style>
 </head>
 
 <body>
+
     <!--Formulario que sirve para escoger la opción del menú-->
     <form id="formulario1" style="display: none;">
         <input type="radio" name="opcion" value="1">Dar Alta</input><br>
         <input type="radio" name="opcion" value="2">Dar baja</input><br>
         <input type="radio" name="opcion" value="3">Consultar Inventario</input><br>
-        <input type="radio" name="opcion" value="4">Buscar Elemento</input><br><br>
-        <input type="submit">
+        <input type="radio" name="opcion" value="4">Buscar Elemento</input><br>
+        <input type="radio" name="opcion" value="5" id="">Buscar Descripcion</input><br><br>
+        <input type="submit" style="width:100%">
     </form>
 
 
     <form id="formularioAltas" style="display: none;">
         <input id="codigo" placeholder="Codigo del Elemento" type="number" name="cod">
         <input id="descripcion" placeholder="Descripcion Producto" type="text" name="desc"><br><br>
-        <input type="submit">
+        <input type="submit" id="enviarAlta">
         <label id="errorAltas" style="display:none"></label>
     </form><br>
     <button id="volver">Volver al Menu principal</button>
@@ -37,10 +56,13 @@
     <form id="formularioBajas" style="display: none;">
         <input id="codigoBaja" placeholder="Codigo del Elemento" type="number" name="cod">
         <input type="submit">
+        <label id="labelBajas" style="display:none"></label>
     </form><br>
-    <button style = "display: none;"id="volverBajas">Volver al Menu principal</button>
+
+    <button style="display: none;" id="volverBajas">Volver al Menu principal</button>
     <h1 id="h1Inventario" style="text-align: center;display: none;">INVENTARIO</h1>
-    <table  id="tablaInventario" style="display: none;">
+    <label id="errorInvetario"></label>
+    <table id="tablaInventario" style="display: none;">
     </table><br>
     <button id="botonVolverInventario" style="display: none">Volver al menu</button>
 
@@ -48,9 +70,31 @@
         <input id="codigoEncontrar" placeholder="Codigo del Elemento" type="number" name="cod">
         <input type="submit">
     </form><br><br>
-    <table  id="tablaEncontrar" style="display: none;">
+    <label id="errorEncontrar"></label>
+    <table id="tablaEncontrar" style="display: none;">
+        <tr>
+            <td>Codigo</td>
+            <td>Descripcion</td>
+            <td>Fecha Alta</td>
+            <td>Fecha Baja</td>
+        </tr>
     </table><br>
     <button id="botonVolverEncontrar" style="display: none">Volver al menu</button>
+
+    <form id="formularioEncontrarDesc" style="display: none;">
+        <input id="descEncontrar" placeholder="Descripcion del Elemento" type="text" name="cod">
+        <input type="submit">
+    </form><br><br>
+    <label id="errorEncontrarDesc"></label>
+    <table id="tablaEncontrarDesc" style="display: none;">
+        <tr>
+            <td>Codigo</td>
+            <td>Descripcion</td>
+            <td>Fecha Alta</td>
+            <td>Fecha Baja</td>
+        </tr>
+    </table><br>
+    <button id="botonVolverEncontrarDesc" style="display: none">Volver al menu</button>
 </body>
 
 </html>
