@@ -146,14 +146,18 @@ const mostrarBuscarElemento = () =>{
         const data = Object.fromEntries(new FormData(e.target)) 
         const devuelto = Articulo.consultarElemento(arrayInventario,data.cod)
         formulario.cod.value=""
+        console.log(devuelto)
         if(devuelto == undefined){
             let etiqueta = document.getElementById("errorEncontrar")
             etiqueta.style = "display:block; color:red"
             etiqueta.innerHTML ="Codigo no encontrado"
+            document.getElementById("tablaEncontrar").style ="display: none"
         }else{
             let etiqueta = document.getElementById("errorEncontrar")
             etiqueta.style.display = "none"
             let tablaEncontrar = document.getElementById("tablaEncontrar")
+            tablaEncontrar.innerHTML = ""
+            tablaEncontrar.innerHTML = "<tr><td>Codigo</td><td>Descripcion</td><td>Fecha Alta</td><td>Fecha Baja</td></tr>"
             tablaEncontrar.style.display = "block"
             tablaEncontrar.innerHTML += `<tr><td>${devuelto[0].elemCode}</td>
                                             <td>${devuelto[0].desc}</td>

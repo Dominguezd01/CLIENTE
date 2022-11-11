@@ -53,6 +53,7 @@ class Articulo{
     
     static consultarInventario(inventario ){
         if(inventario[0] != ""){
+            document.getElementById("errorInvetario").style.display ="none"
             let table = document.getElementById("tablaInventario")
             table.style.display ="block"
             table.innerHTML ="<tr><td>Código</td><td>Descripcion</td><td>Fecha alta</td><td>Fecha Baja</td></tr>"
