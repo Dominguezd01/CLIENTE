@@ -3,6 +3,7 @@ onload = () => {
     document.getElementById("volver").style = "display: none"
 
 }
+
 let arrayInventario = [""]
 document.getElementById("formulario1").addEventListener("submit", e => {
     e.preventDefault()
@@ -36,6 +37,9 @@ const menus = (data) => {
             break
         case "5":
             mostrarBuscarDesc()
+            break
+        case "6":
+            mostrarArmario()
             break
 
     }
@@ -207,7 +211,40 @@ const mostrarBuscarDesc = () =>{
 
 
     })
+}
 
+const mostrarArmario = () =>{
+    document.getElementById("formulario1").style.display = "none"
+    let formulario = document.getElementById("formularioArmario")
+    formulario.style.display = "block"
+    document.getElementById("volverArmario").style.display ="block"
+    formulario.addEventListener("submit", e =>{
+        e.preventDefault()
+        const data = Object.fromEntries(new FormData(e.target))
+        console.log(data)
+        formulario.cod.value =""
+        formulario.desc.value =""
+        formulario.altoArm.value = ""
+        formulario.anchoArm.value =""
+        formulario.fondoArm.value =""
+        if(data.cod == "" || data.desc == "" || data.altoArm == "" || data.anchoArm == "" || data.fondoArm == ""){
+            let label = document.getElementById("errorArmario")
+            label.innerHTML = "Introduce los datos correctamente"
+            label.style = "display: block; color:red"
+        }else{
+            document.getElementById("errorArmario").style = "display: none"
+            let armario1 = new Armario(data.cod, data.desc, new Date().toLocaleDateString, undefined, data.altoArm, data.anchoArm, data.fondoArm)
+            armario1.baja()
+            armario1.consulta()
+        }
+    })
+
+    document.getElementById("volverArmario").onclick = () =>{
+        mostrarMenu()
+        document.getElementById("formularioArmario").style.display = "none"
+        document.getElementById("volverArmario").style.display ="none"
+        document.getElementById("tablaEncontrarArmario").style.display ="none"
+    }
 }
 
 
