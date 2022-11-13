@@ -1,15 +1,14 @@
 class Articulo{
-    constructor(elemCode, desc, fechaAlt, fechaBaja = undefined){
+    constructor(elemCode, desc){
         this.elemCode = elemCode
         this.desc = desc
-        this.fechaAlt = fechaAlt
-        this.fechaBaja = fechaBaja
+        this.fechaAlt = new Date().toLocaleDateString()
+        this.fechaBaja = undefined
     }
 
     static añadir(inventario, data){
-
         if(inventario[0] == "" ){
-            inventario[0] = new Articulo(data.cod, data.desc, new Date().toLocaleDateString())
+            inventario[0] = new Articulo(data.cod, data.desc)
             return inventario
         }else{
             for(let i = 0; i<inventario.length;i++){
@@ -20,7 +19,7 @@ class Articulo{
                     return inventario
                 }else{
                     console.log(inventario)
-                    inventario.push(new Articulo(data.cod, data.desc, new Date().toLocaleDateString())) 
+                    inventario.push(new Articulo(data.cod, data.desc)) 
                     return inventario
                 }
             }
