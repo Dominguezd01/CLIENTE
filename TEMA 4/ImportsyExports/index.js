@@ -1,3 +1,4 @@
-import suma from './exportar.js'
+import * as sumar from './exportar.js' 
 
-console.log(suma(1,2))
+//console.log(sumar(1,2))
+
