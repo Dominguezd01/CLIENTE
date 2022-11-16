@@ -52,6 +52,7 @@ const menuAltas = () => {
     document.getElementById("formularioAltas").addEventListener("submit", e => {
         e.preventDefault()
         const data = Object.fromEntries(new FormData(e.target))
+        console.log(data)
         let labelAltas = document.getElementById("errorAltas")
 
         labelAltas.style = "display: none; color: red"
