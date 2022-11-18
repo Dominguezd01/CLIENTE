@@ -1,14 +1,16 @@
-/*
+
 const muestraSalario = (mapPersonas, mapSalarios) => {
-    for(let i = 0; i<mapPersonas.size-1; i++){
-        console.table()
-    }
+    mapPersonas.forEach( e => {
+        console.log("Ej1")
+        console.log(mapPersonas.keys(), mapPersonas.values())
+        console.log(mapSalarios.keys(), mapSalarios.values())
+    });
 }
-*/
+
 let mapPersonas = new Map().set("71799254Q", "Miguel").set("71799255Q", "María")
 let mapSalarios = new Map().set("71799254Q", 3500).set("71799255Q", 7500)
 
-//muestraSalario(mapPersonas,mapSalarios)
+muestraSalario(mapPersonas,mapSalarios)
 
 
 
@@ -129,4 +131,4 @@ const menu = () => {
        }
     }
 }
-menu()
+//menu()
