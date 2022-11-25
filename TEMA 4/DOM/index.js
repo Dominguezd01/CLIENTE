@@ -5,3 +5,4 @@ img.setAttribute("src", "./1.jpg")
 
 
 document.body.append(img)
+
