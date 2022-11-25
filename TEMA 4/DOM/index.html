@@ -1,13 +1,51 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./index.js" defer></script>
-</head>
+<!DOCTYPE HTML>
+<html>
 <body>
-    
+
+  <ul>
+    <li>Animales
+      <ul>
+        <li>Mamíferos
+          <ul>
+            <li>Vacas</li>
+            <li>Burros</li>
+            <li>Perros</li>
+            <li>Tigres</li>
+          </ul>
+        </li>
+        <li>Otros
+          <ul>
+            <li>Serpientes</li>
+            <li>Aves</li>
+            <li>Lagartos</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Peces
+      <ul>
+        <li>Acuario
+          <ul>
+            <li>Guppy</li>
+            <li>Angelote</li>
+          </ul>
+        </li>
+        <li>Mar
+          <ul>
+            <li>Trucha de mar</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    let li = document.querySelectorAll("li")
+    for(elemento of li){
+        let resultado = elemento.firstChild.data.trim() + ":"+ elemento.querySelectorAll("li").length
+        console.log(resultado)
+    }
+  </script>
+
 </body>
 </html>
