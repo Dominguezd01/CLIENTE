@@ -1,0 +1,56 @@
+<script>
+  /***********************************************************
+   * ESTILOS
+   */
+
+  /***********************************************************
+   * ACCEDER AL ATRIBUTO STYLE DEL HTML
+   *      elemento.getAttribute("style")      => cadena
+   *      elemento.style                      => objeto especial
+   *
+   * Objeto elemento.style
+   *     * las propiedades son los estilos
+   *      	Ej. elem.style.color (para color)
+   *     * si la propiedad está compuesta por varias propiedades, se utiliza camelCase
+   *      	Ej. elem.style.backgroundColor (para background-color)
+   *          Ej. elem.MozBorderRadius (para -moz-border-radius)
+   *
+   *      elem.sytle.propiedad: para acceder/modificar una propiedad
+   *          Ej. elem.style.width = "100px"
+   *      elem.style.propiedad = "": para eliminar una propiedad
+   *      elem.style.cssText = "estilos" (para asignar varios estilos)
+   *
+   *
+   *  Problema: ¿cómo añadir/quitar clases a un elemento?
+   */
+
+  /***********************************************************
+   * ACCEDER AL ESTILO CALCULADO PARA UN ELEMENTO
+   *      getComputedStyle(elemento, [pseudo])
+   *          Devuelve un objeto similar a elem.style,
+   *          pero de los valores que realmente se aplican al elemento (valor resuelto).
+   *
+   * Actualmente getComputedStyle() devuelve el valor resuelto (en unidades absolutas)
+   *
+   **********************************************************/
+</script>
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <body style="font-weight: bold">
+    <div style="color: red" id="myElement">PRUEBA</div>
+  </body>
+</html>
+<script>
+  const element = document.getElementById("myElement");
+  let out = "";
+  const elementStyle = element.style;
+  const computedStyle = window.getComputedStyle(element, null);
+
+  for (const prop in elementStyle) {
+    if (Object.hasOwn(elementStyle, prop)) {
+      out += `  ${prop} = '${elementStyle[prop]}' > '${computedStyle[prop]}'\n`;
+    }
+  }
+  console.log(out);
+</script>
