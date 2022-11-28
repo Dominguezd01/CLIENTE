@@ -7,9 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body{
+        display: grid;
+        place-items: center;
 
+    }
+</style>
 <body>
-    
+    <a name="list">the list</a>
     <ul>
         <li><a href="http://google.com">http://google.com</a></li>
         <li><a href="/tutorial">/tutorial.html</a></li>
@@ -20,19 +26,15 @@
     </ul>
 
     <script>
-        // establecer un estilo para un enlace
         let link = document.querySelectorAll('a');
-        console.log(link)
         link.forEach(elemento => {
             if(elemento.hasAttribute("href")){
-                let enlace = elemento.getAttribute("href")
-                if(enlace.includes("://") && !enlace.includes("http://internal.com")){
+                if(elemento.getAttribute("href").includes("://") && !elemento.getAttribute("href").includes("http://internal.com")){
                     elemento.style.color = "orange"
-                }else{
-                    elemento.style.color = blue
                 }
             }
         })
+
 
     </script>
 </body>
