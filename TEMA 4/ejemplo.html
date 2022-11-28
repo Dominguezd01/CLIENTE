@@ -1,15 +1,20 @@
-
-
 <!DOCTYPE html>
 <html>
+
 <body>
-
-  <div data-widget-name="menu">Elige el genero</div>
-
+<p id="prueba">
+  Hola
+</p>
   <script>
-    let div = document.querySelector("div")
-    let att = div.getAttribute("data-widget-name")
-    console.log(att)
+    elemento = document.getElementById("prueba");
+    if (elemento.nodeType === 8) {
+      console.log("Comentario");
+    } else if (elemento.nodeType=== 1) {
+      console.log(" ElementoHTML");
+    }
+
   </script>
 </body>
+
 </html>
+
