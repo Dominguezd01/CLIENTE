@@ -26,14 +26,14 @@
     </ul>
 
     <script>
-        let link = document.querySelectorAll('a');
-        link.forEach(elemento => {
-            if(elemento.hasAttribute("href")){
-                if(elemento.getAttribute("href").includes("://") && !elemento.getAttribute("href").includes("http://internal.com")){
-                    elemento.style.color = "orange"
+        document.querySelectorAll('a')
+            .forEach(elemento => {
+                if(elemento.hasAttribute("href")){
+                    if(elemento.getAttribute("href").includes("://") && !elemento.getAttribute("href").includes("http://internal.com")){
+                        elemento.style.color = "orange"
+                    }
                 }
-            }
-        })
+            })
 
 
     </script>
