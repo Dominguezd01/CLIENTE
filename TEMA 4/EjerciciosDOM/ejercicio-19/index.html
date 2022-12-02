@@ -1,12 +1,79 @@
 <!DOCTYPE HTML>
 <html>
+<style>
+  body{
+    display: grid;
+    place-items: center;
+    font-size: 125px;
+  }
+
+  #buttons{
+    display: flex;
+  }
+  input{
+    width: 10rem;
+    height: 2rem;
+  }
+  #start{
+    margin-right: 1em;
+  }
+  #horas{
+    color:red;
+  }
+  #minutos{
+    color:lime;
+  }
+  #segundos{
+    color: blue;
+  }
+</style>
 <body>
-
+  <p id="hora">
+    <span id="horas"></span>
+    <span id="minutos"></span>
+    <span id="segundos"></span>
+  </p>
   <!-- cliquear en este botón llama a clockStart() -->
-  <input type="button" onclick="clockStart()" value="Start">
+  <div id="buttons">
+    <input id="start" type="button" onclick="clockStart()" value="Start">
 
-  <!-- cliquear en este botón llama a clockStop() -->
-  <input type="button" onclick="clockStop()" value="Stop">
+    <!-- cliquear en este botón llama a clockStop() -->
+    <input type="button" onclick="clockStop()" value="Stop">
+  </div>
 
+
+  <script>
+
+    let id
+    const clockStart = () => {
+      id = setInterval(actualizarReloj,1000)
+    }
+
+
+    const clockStop = () =>{
+      clearInterval(id)
+    }
+
+    const actualizarReloj = () =>{
+      let horas = document.getElementById("horas")
+      let minutos = document.getElementById("minutos")
+      let segundos = document.getElementById("segundos")
+      if(new Date().getHours < 10){
+          horas.innerHTML = "0"+new Date().getHours() + ":"
+        }else{
+          horas.innerHTML = new Date().getHours() + ":"
+        }
+        if(new Date().getMinutes() <10){
+          minutos.innerHTML = "0" + new Date().getMinutes() + ":"
+        }else{
+          minutos.innerHTML = new Date().getMinutes() + ":"
+        }
+        if(new Date().getSeconds() <=10){
+          segundos.innerHTML = "0" + new Date().getSeconds()
+        }else{
+          segundos.innerHTML = new Date().getSeconds()
+        }
+    };
+  </script>
 </body>
 </html>
