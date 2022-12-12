@@ -11,6 +11,10 @@
       background-color: #00FF00;
       overflow: hidden;
     }
+    #ball{
+      position: absolute;
+      top: 50%;
+    }
   </style>
 </head>
 
@@ -27,4 +31,11 @@
 
 
 </body>
+<script>
+  let campo = document.getElementById("field")
+  campo.addEventListener("click", (e) =>{
+      let balon = document.getElementById("ball")
+      balon.style.transform = `translate: ${e.clientX}px ${e.clientY}px`
+  })
+</script>
 </html>
