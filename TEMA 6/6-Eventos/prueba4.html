@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      div {
+        padding: 1em;
+        border: 2px solid blue;
+        transition: 5s;
+      }
+      .color {
+        background-color: red;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="primero">
+      PRIMER DIV
+      <div id="segundo">
+        SEGUNDO DIV
+        <div id="prueba">DIV INTERNO</div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", inicio);
+      function inicio() {
+        let primero = document.getElementById("primero");
+        primero.addEventListener("click", colorFondo);
+      }
+
+      function colorFondo(e) {
+        e.target.classList.toggle("color");
+      }
+    </script>
+  </body>
+</html>

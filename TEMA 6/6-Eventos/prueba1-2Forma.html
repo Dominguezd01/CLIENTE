@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .color {
+        background-color: yellow;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <div>
+        <!-- primera forma de asignar un evento -->
+        <!--div id="prueba" onclick="colorFondo()">ESTO ES UNA PRUEBA</div-->
+
+        <!-- otras forma de asignar un evento -->
+        <div id="prueba">ESTO ES UNA PRUEBA</div>
+      </div>
+    </div>
+    <script>
+      let campo = document.getElementById("prueba");
+
+      // Segunda forma de asignar un evento
+      campo.onclick = colorFondo;
+      campo.ondblclick = quitarEvento;
+
+      function colorFondo() {
+        this.classList.toggle("color");
+      }
+
+      function quitarEvento() {
+        this.onclick = null;
+      }
+    </script>
+  </body>
+</html>
