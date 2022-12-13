@@ -5,7 +5,7 @@
 </head>
 <body>
 
-  ▶ ▼ Sweeties (click me)!
+  <span id="plegar">▶</span> <span id="desplegar">▼</span> Sweeties (click me)!
   <ul>
     <li>Cake</li>
     <li>Donut</li>
@@ -13,4 +13,12 @@
   </ul>
 
 </body>
+<script>
+    let plegar = document.getElementById("plegar")
+    let desplegar = document.getElementById("desplegar")
+
+    plegar.addEventListener("click", document.querySelector("ul").style.display = "none")
+    
+    desplegar.addEventListener("click", document.querySelector("ul").style.display = "block")
+</script>
 </html>

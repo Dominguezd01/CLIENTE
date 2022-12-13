@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <style>
     #field {
+      position: relative;
       width: 200px;
       height: 150px;
       border: 10px solid black;
@@ -13,7 +14,7 @@
     }
     #ball{
       position: absolute;
-      top: 50%;
+
     }
   </style>
 </head>
@@ -33,9 +34,33 @@
 </body>
 <script>
   let campo = document.getElementById("field")
-  campo.addEventListener("click", (e) =>{
-      let balon = document.getElementById("ball")
-      balon.style.transform = `translate: ${e.clientX}px ${e.clientY}px`
-  })
+  let balon = document.getElementById("ball")
+  campo.addEventListener("mousemove", mover)
+
+  function mover (e){
+
+    let anchoB = balon.offsetWidth
+    let altoB = balon.offsetHeight
+    let coordsCampo = campo.getBoundingClientRect()
+
+    let posx = e.clientX - coordsCampo.left - campo.clientLeft - anchoB / 2
+    let posy = e.clientY - coordsCampo.top - campo.clientTop - altoB /2
+
+    let maxX = campo.clientWidth - balon.clientWidth
+    let maxY = campo.clientHeight - balon.clientHeight
+    let minX = 0
+    let minY = 0
+
+    posx = posx > maxX ? maxX : posx
+    posx = posx < minX ? minX : posx
+
+    posy = posy > maxY ? maxY : posy
+    posy = posy < minY ? minY : posy
+
+
+    balon.style.top = posy + "px"
+    balon.style.left = posx + "px"
+
+  }
 </script>
 </html>
