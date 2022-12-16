@@ -4,7 +4,9 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="style.css">
 </head>
+<style>
 
+</style>
 <body>
 
   <div id="carousel" class="carousel">
@@ -27,23 +29,26 @@
   </div>
 
   <script>
+      
       let flechas = document.querySelectorAll("button")
-      console.table(flechas)
       
       flechas[0].addEventListener("click", moverIzqda)
       flechas[1].addEventListener("click", moverDcha)
 
       function moverIzqda(e) {
         let ul = document.querySelector("ul")
-        ul.style.marginLeft = "0px"
+
+        if(ul.style.marginLeft.split("px")[0]!= 0){
+          ul.style.marginLeft = `${Number(ul.style.marginLeft.split("px")[0]) + 130}px`
+          console.log
+        }
       }
+
       function moverDcha(e) {
         let ul = document.querySelector("ul")
-        if(ul.style.marginLeft == "0px"){
-          ul.style.marginLeft = "-400px"
-        }else{
-          ul.style.marginLeft = "-200px"
-        }
+          if(ul.style.marginLeft.split("px")[0] != -1170){
+            ul.style.marginLeft = `${Number(ul.style.marginLeft.split("px")[0]) - 130}px`
+          }
       }
   </script>
 
