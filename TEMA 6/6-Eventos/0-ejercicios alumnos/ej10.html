@@ -16,12 +16,24 @@
   <fieldset id="contents">
     <legend>#contents</legend>
     <p>
-      ¿Que tal si leemos <a href="https://wikipedia.org">Wikipedia</a> o visitamos <a href="https://w3.org"><i>W3.org</i></a> y aprendemos sobre los estándares modernos?
+      ¿Que tal si leemos <a href="https://wikipedia.org">Wikipedia</a> o visitamos <a
+        href="https://w3.org"><i>W3.org</i></a> y aprendemos sobre los estándares modernos?
     </p>
   </fieldset>
 
 </body>
 <script>
-    
+  let div = document.getElementById("contents")
+  div.addEventListener("click", redirect)
+
+  function redirect(e) {
+    if (e.target.nodeName == "A" && !confirm(`Quieres ir a ${e.target.getAttribute("href")}?`)) {
+        e.preventDefault()
+    }else if (e.target.closest("a") && !confirm(`Quieres ir a ${e.target.closest('a').getAttribute("href")}?`)){
+        e.preventDefault("aaaaa")
+      }
+    }
+  
 </script>
+
 </html>
