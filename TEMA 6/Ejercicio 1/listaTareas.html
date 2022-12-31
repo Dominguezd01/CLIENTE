@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formularioTareas">
+        <input type="text" placeholder="Introduce tu tarea aqui" name="task"><br>
+        <input type="submit"><br><br>
+    </form>
+    <button id="eliminarTareas">Eliminar todas las tareas</button>
+    <div id="listaTarea"></div>
+</body>
+
+<script>
+    /*
+    onload = () =>{
+         let arrayTareas = Array.from(localStorage.getItem("arrayTareas"))
+
+         arrayTareas.forEach(tarea =>{
+            let li = document.createElement("li")
+            li.innerText = tarea
+            document.getElementById("listaTarea").appendChild(li)
+         })
+    }
+    */
+    let form = document.getElementById("formularioTareas")
+    form.addEventListener("submit", e =>{
+        e.preventDefault()
+        const data = Object.fromEntries(new FormData(e.target))
+        handleSubmit(data.task)
+    })
+    const handleSubmit = (data) =>{
+        let div = document.createElement("div")
+        let input = document.createElement("input")
+        input.setAttribute("type", "checkbox")
+        input.setAttribute("class", "checkbox")
+        div.appendChild(input)
+        let span = document.createElement("span")
+        span.innerText = data
+        div.appendChild(span)
+
+        document.getElementById("listaTarea").appendChild(div)
+        if(input.value = "on"){
+        input.closest("span").outerHTML = ""
+       input.outerHTML = ""
+    }
+    }
+    
+    document.getElementById("eliminarTareas").addEventListener("click", () =>{
+        document.getElementById("listaTarea").innerHTML = ""
+    })
+
+</script>
+</html>
