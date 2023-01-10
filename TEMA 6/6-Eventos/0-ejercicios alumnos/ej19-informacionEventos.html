@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UT04 - Ejercicio 5 - Eventos teclado y ratón</title>
-
     <style>
+        :root{
+            color-scheme:dark ;
+        }
         body {
             font-family: arial, helvetica;
+            font-size:12px ;
         }
 
         .box {
@@ -36,5 +39,37 @@
         <div id="datosTeclado"></div>
     </div>
 </body>
+<script>
+    let colores =['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
+		  '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+		  '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A', 
+		  '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC']
+    
+    let datosTeclado = document.getElementById("datosTeclado")
+    let datosRaton = document.getElementById("datosRaton")
+    let teclado = document.getElementById("teclado")
+    let raton = document.getElementById("raton")
+    document.addEventListener("keypress", e=>{
+        datosTeclado.innerText = 
+        `
+        Codigo tecla: ${e.code}\n
+        Tecla pulsada: ${e.key} 
+        `
+        let i = Math.random() * (colores.length-1)
 
+        teclado.style.backgroundColor  = `${colores[parseInt(i)]}`
+    })  
+    document.addEventListener("mousemove", e=>{
+        datosRaton.innerText = 
+        `
+        Navegador: X:${e.clientX} Y:${e.clientY}\n
+        Pantalla: X:${e.screenX} Y:${e.screenY}
+        `
+    })  
+    document.addEventListener("mousedown", e =>{
+        let i = Math.random() * (colores.length-1)
+        raton.style.backgroundColor  = colores[parseInt(i)]
+    })
+
+</script>
 </html>

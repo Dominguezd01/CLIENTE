@@ -28,7 +28,17 @@
   </ul>
 
   <script>
-    //...Tu código
+    let ul = document.querySelectorAll("ul")
+
+      ul.addEventListener("click", e =>{
+        if(e){
+            
+            e.target.classList.add("selected")
+        }else{
+            
+        }
+      })
+    
   </script>
 
 </body>
